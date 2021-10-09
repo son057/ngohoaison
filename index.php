@@ -1,1 +1,3 @@
-<?php echo time();?>
+<?php
+require_once 'mvc/bridge.php';
+?>

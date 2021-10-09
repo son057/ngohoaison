@@ -1,0 +1,10 @@
+<div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Nội dung bài viết</h2>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.Sea at stet sea eirmod kasd magna sit lorem justo amet. Amet nonumy diam est aliquyam et stet et clita. Sed nonumy clita stet ipsum at. Sed dolor elitr at ea dolores. Et consetetur ut dolor erat eos nonumy sea. At gubergren elitr eos labore ea kasd et nonumy nonumy. Sit et rebum amet at, vero accusam magna diam ipsum eirmod diam est magna. Stet ut at sadipscing eos et lorem, invidunt labore ipsum takimata duo accusam nonumy. Erat et ut et sed dolore ea. Stet dolore elitr invidunt et sed dolores dolores kasd, clita voluptua elitr no est. Invidunt stet ipsum ea dolores ut no. Sadipscing ipsum tempor elitr duo magna, rebum eos stet sit tempor justo stet nonumy, stet et et dolores elitr justo. Eirmod sed amet aliquyam et stet, invidunt invidunt amet elitr stet, sit amet nonumy stet nonumy vero. Erat nonumy est dolor invidunt kasd.Invidunt justo sit kasd gubergren accusam, et invidunt aliquyam dolore sea aliquyam sed erat. At et ut stet magna ea diam est ipsum. Dolor aliquyam ea dolor et sanctus, et tempor ipsum dolor et vero ipsum. Lorem sed duo labore diam takimata, et takimata et sed gubergren, sanctus sadipscing takimata nonumy justo stet ipsum takimata nonumy vero, amet nonumy kasd lorem et consetetur tempor, sit at et voluptua diam clita ipsum et sit, dolor sed gubergren sadipscing duo eos nonumy elitr dolor, dolore sed dolor at aliquyam diam voluptua. Ut amet sit dolore amet. Rebum lorem eos duo rebum sit sanctus eos tempor. Ipsum sadipscing invidunt sea no amet et, sit sanctus nonumy consetetur eirmod ea, sed aliquyam diam amet invidunt accusam sit, dolor dolores diam sed eos at et. Est gubergren elitr aliquyam sit. Clita vero lorem lorem justo sed est accusam. Takimata duo erat stet et dolor duo.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
