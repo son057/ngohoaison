@@ -1,122 +1,42 @@
+<?php 
+$products=$data['products'];
+$paging=$data['paging'];
+$totalRecords=$data['totalRecords'];
+?>
+
+
 <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img01.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Giải tích 12</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
+<?php echo "Tổng số sản phẩm tìm thấy: ". $totalRecords. " sản phẩm";?>
+<div class="row">
+<?php foreach ($products as $product){?>
+  <div class='col-md-3'>
+        <img src="<?php echo BASE_URL;?>public/upload/<?php echo $product['image']?>" class="card-img-top" alt="hinhsp">
+        <div class="card-body text-center lert alert-primary">
+              <center><a href="<?php echo BASE_URL.'product/productDetail/'. $product['alias'] ?>"?></h5>
+              <div class="card-body text-center lert alert-primary">
+                  <div class="card-body text-center lert alert-primary">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span></br></h5>
+                  </div>
+                  <a href="<?php echo BASE_URL.'product/productDetail/'. $product['alias'] ?>" class='text-decoration-none'><h5 class="card-title"><?php echo $product['productName']?>
+                  <?php
+                  if($product['salePrice']!=''){?>
+                  <p class="card-text"><span class="text-decoration-line-through"><?php echo number_format($product['price'],2)?></span>|<span class="text-danger"><?php echo number_format($product['salePrice'],2)?></span></p>
+                  <?php }
+                  else {
+                  ?>
+                  <span class="text-danger"><?php echo number_format($product['price'],2)?></span></p>
+                  <?php }?>
+                  <a class="btn btn-primary text-center" href="<?php echo BASE_URL?>cart/add/<?php echo $product['productId']?>/<?php echo $product['productName']?>/<?php if($product['salePrice']<>0) echo $product['salePrice']; else echo $product['price']?>">Add to card</a>
+                </div>
         </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img02.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Ngữ văn 11 tập 1</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img03.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Hóa học 11 nâng cao</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img04.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Vật Lý 10</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img05.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Địa Lí 9</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img06.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Lịch Sử 8</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img07.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Tiếng Anh 7 tập 1</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img08.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Âm Nhạc và Mĩ Thuật 7</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img09.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Tiếng Việt 5 tập 1</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img10.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Nhà Giả Kim</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img11.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Tôi là BêTô</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="<?php echo BASE_URL; ?>public/upload/Son_img12.jpg" class="card-img-top" alt="hinhsp">
-            <div class="card-body text-center lert alert-primary">
-              <h5 class="card-title">Totto-chan bên cửa sổ</h5>
-              <p class="card-text"><span class="text-decoration-line-through">100.000 VND</span>|<span class="text-danger">80.000 VND</span></p>
-              <a href="#" class="btn btn-primary">Add to card</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  </div>
+<?php }?>
+<div class="row">
+    <?php $paging->createLinks();?>
+</div>
+</div>
+</div>

@@ -14,6 +14,7 @@
           <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
+      <a class="btn-top" href="javascript:void(0);" title="Top" style="display: block;">TOP</a>
     </div>
     <?php require_once PATH_TO_MODUL.'cart.php';?>
 </body>

@@ -1,4 +1,12 @@
+<?php
+$linkmodel=new LinkModel;
+$links=$linkmodel->getAll(['trash'=>0,'status'=>1,'position'=>'bottommenu2']);
+
+?>
+
+
 <div class="col-md-4 p-5">
-          <a href="" class="text-decoration-none">Tài khoản</a><br>
-          <a href="" class="text-decoration-none">Đăng ký</a><br>
+<?php foreach($links as $link){?>
+          <a href="<?php echo BASE_URL.$link['link']?>" class="text-decoration-none"><?php echo $link['title'];?></a><br>
+  <?php }?>
         </div>

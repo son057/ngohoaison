@@ -10,7 +10,6 @@ class App{
         else
         $controllername='product';
         //tao controller
-        
         $controller=new $controllername;
         //Xac dinh ten method $reqs[1] - home 
         if(isset($reqs[1])&&method_exists($controller, $reqs[1]))

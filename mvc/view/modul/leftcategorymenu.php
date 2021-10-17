@@ -1,10 +1,16 @@
+<?php
+$catmodel=new CategoryModel;
+$cats=$catmodel->getAll(['trash'=>0,'status'=>1]);
+?>
+
+
 <div class="card">
             <div class="card-header">
               Các loại Sản phẩm
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a href="" class="text-decoration-none">Sách Giáo Khoa</a></li>
-              <li class="list-group-item"><a href="" class="text-decoration-none">Tiểu Thuyết</a></li>
-              <li class="list-group-item"><a href="" class="text-decoration-none">Sách Kinh Tế</a></li>
+            <?php foreach($cats as $cat){?>
+              <li class="list-group-item"><a href="<?php echo BASE_URL.'product/productByCat/'.$cat['alias'].'/'.LIMIT.'/0'?>" class="text-decoration-none"><?php echo $cat['catName']?></a></li>
+            <?php }?> 
             </ul>
           </div>

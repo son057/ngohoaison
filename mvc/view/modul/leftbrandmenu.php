@@ -1,10 +1,16 @@
+<?php
+$brandmodel=new BrandModel;
+$brands=$brandmodel->getAll(['trash'=>0,'status'=>1]);
+?>
+
+
 <div class="card mt-2">
             <div class="card-header">
               THƯƠNG HIỆU
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><a href="" class="text-decoration-none">NXB GIÁO DỤC</a></li>
-              <li class="list-group-item"><a href="" class="text-decoration-none">NHÃ NAM</a></li>
-              <li class="list-group-item"><a href="" class="text-decoration-none">NXB TRẺ</a></li>
+            <?php foreach($brands as $brand){?>
+              <li class="list-group-item"><a href="<?php echo BASE_URL.'product/productByBrand/'.$brand['alias'].'/'.LIMIT.'/0'?>" class="text-decoration-none"><?php echo $brand['brandName']?></a></li>
+            <?php }?>
             </ul>
           </div>
