@@ -43,17 +43,36 @@ class AdminProduct extends AdminController{
     public function addproduct($limit=LIMIT,$offset=0)
      {
          //Xử lý dữ liệu nhận được
-        // if(isset($_POST['submit']))
-        // {
-        //     $adminproductmodel=new AdminProductModel;
-        //     $adminproductmodel->doAddProduct();
-        // }
+        if(isset($_POST['submit']))
+        {
+            $adminproductmodel=new AdminProductModel;
+            $adminproductmodel->doAddProduct();
+        }
         // //Hiển thị form Add
         $catmodel=new AdminCategoryModel;
         $data['cats']=$catmodel->getAll(['trash'=>0,'status'=>1]);
         $brandmodel=new AdminBrandModel;
         $data['brands']=$brandmodel->getAll(['trash'=>0,'status'=>1]);
         $this->loadAdminView('adminmaster1','adminproduct/addproduct',$data);
+     }
+
+
+     public function UpdateProduct($productId)
+     {
+        //Xử lý dữ liệu nhận được
+        $adminproductmodel=new AdminProductModel;
+        if(isset($_POST['submit']))
+        {
+            $adminproductmodel->doUpdateProduct($productId);
+        }
+        
+        //Hiển thị form Update
+        $catmodel=new AdminCategoryModel;
+        $data['cats']=$catmodel->getAll(['trash'=>0,'status'=>1]);
+        $brandmodel=new AdminBrandModel;
+        $data['brands']=$brandmodel->getAll(['trash'=>0,'status'=>1]);
+        $data['oldproduct']=$adminproductmodel->get(['productId'=>$productId]);
+        $this->loadAdminView('adminmaster1','adminproduct/updateproduct',$data);
      }
      
 }

@@ -19,4 +19,4 @@
 <?php
 require 'mvc/lib/helper.php';
 $h=new Helper;
-echo $h->to_alias('CHIẾC KHĂN GIÓ ẤM');
+echo $h->to_alias('Ronaldo đón tin cực vui: Lập "cú đúp" với bạn gái hot girl, lên chức cha lần thứ 6');

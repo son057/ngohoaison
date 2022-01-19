@@ -57,5 +57,90 @@ public function productUnTrash($productId)
     header("location:".BASE_URL."adminproduct/productlistInTrash/".LIMIT."/0");
 }
 
+
+public function doAddProduct()
+{
+    // Lấy dữ liệu sp mới.
+    $newpro['productName']=$_POST['inputProductName'];
+    $newpro['alias']=$_POST['inputAlias'];
+    $newpro['catid']=$_POST['inputCatId'];
+    $newpro['brandId']=$_POST['inputBrandId'];
+    $newpro['image']=basename($_FILES['inputFileUpload']['name']);
+    $newpro['trash']=0;
+    $newpro['status']=$_POST['inputStatus'];
+    $newpro['detail']=$_POST['inputDetail'];
+    $newpro['price']=$_POST['inputPrice'];
+    $newpro['salePrice']=$_POST['inputSalePrice'];
+    // Tạo chuỗi alias
+    $helper=new Helper;
+    if($newpro['alias']=='')$newpro['alias']=$helper->to_alias($newpro['productName']);
+    //Kiểm lỗi
+    $_SESSION['msg']='';
+    if($newpro['price']<$newpro['salePrice'])
+        $_SESSION['msg'].= 'Giá sale phải nhỏ hơn giá bán';
+    else
+    {
+        $uploadSuccess=$helper->doUpload('inputFileUpload');
+        if($uploadSuccess)
+        {
+            if($this->insert($newpro)) $_SESSION['msg'].='Thêm sản phẩm thành công';
+            else
+            {
+                $_SESSION['msg'].='Thêm sản phẩm thất bại';
+            }
+        }
+    }
+}
+
+public function doUpdateProduct($productId)
+{
+    // Lấy dữ liệu sp mới.
+    $newpro['productName']=$_POST['inputProductName'];
+    $newpro['alias']=$_POST['inputAlias'];
+    $newpro['catid']=$_POST['inputCatId'];
+    $newpro['brandId']=$_POST['inputBrandId'];
+    $newpro['status']=$_POST['inputStatus'];
+    $newpro['trash']=$_POST['inputTrash'];
+    $newpro['detail']=$_POST['inputDetail'];
+    $newpro['price']=$_POST['inputPrice'];
+    $newpro['salePrice']=$_POST['inputSalePrice'];
+    // Tạo chuỗi alias
+    $helper=new Helper;
+    if($newpro['alias']=='')$newpro['alias']=$helper->to_alias($newpro['productName']);
+    //Kiểm lỗi
+    $_SESSION['msg']='';
+    if($newpro['price']<$newpro['salePrice'])
+        $_SESSION['msg'].= 'Giá sale phải nhỏ hơn giá bán';
+    else
+    {
+        if($_FILES['inputFileUpload']['name']!='')
+        {
+            $_SESSION['msg'].="file up len:".$_FILES['inputFileUpload']['name'];
+            $uploadSuccess=$helper->doUpload('inputFileUpload');
+            if($uploadSuccess)
+            {
+                $newpro['image']=$_FILES['inputFileUpload']['name'];
+                if($this->update($newpro,$productId)) $_SESSION['msg'].='Cập nhật sản phẩm thành công';
+                else
+                {
+                    $_SESSION['msg'].='Cập nhật sản phẩm thất bại';
+                }
+                header("Location:".BASE_URL."adminProduct/productList");
+                exit;
+            }
+        }
+        else
+        {
+            if($this->update($newpro,$productId)) $_SESSION['msg'].='Cập nhật sản phẩm thành công';
+                else
+                {
+                    $_SESSION['msg'].='Cập nhật sản phẩm thất bại';
+                }
+                header("Location:".BASE_URL."adminProduct/productList");
+                exit;
+        }
+    }
+}
+
 }
 ?>

@@ -39,7 +39,7 @@ class BaseModel extends Db{
         return $condString;
     }
 
-    function insert($data) {
+    public function insert($data) {
         $dataString="'".implode("','",$data)."'";
         $fieldString=implode(',',$this->field);
         $sql=" insert into $this->table($fieldString) values ($dataString)";

@@ -34,7 +34,17 @@ $links=$linkmodel-> getAll(['trash'=>0,'status'=>1,'position'=>'globalnav']);
                 <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
-            <div class="col-md-4"><i class="fas fa-shopping-cart fs-3"></i> <button class="btn btn-primary">Đăng nhập</button></div>
+            <div class="col-md-4">
+            <span data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="fas fa-shopping-cart fs-3" id=carticon></i>
+              <?php 
+              $cart=new Cart;
+              if($cart->getCount()!=0)echo'('.$cart->getCount().')';
+              ?>
+            </span>
+            <a href="<?php echo BASE_URL.'auth/login_customer'?>" class="btn btn-primary">Đăng nhập</a>
+            <a href="<?php echo BASE_URL.'auth/register'?>" class="btn btn-primary">Đăng ký</a>
+            </div>
                 <div class="col">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="container-fluid">
@@ -73,6 +83,9 @@ $links=$linkmodel-> getAll(['trash'=>0,'status'=>1,'position'=>'globalnav']);
                                 <a class="nav-link" aria-current="page" href="<?php echo BASE_URL.$link['link']?>"><?php echo $link['title']?></a>
                               </li>
                               <?php }?>
+                              <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="<?php echo BASE_URL?>">Tin Tức</a>
+                              </li>
                             </ul>
                           </div>
                         </div>
